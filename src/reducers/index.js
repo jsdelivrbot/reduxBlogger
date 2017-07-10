@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import PostsReducer from './reducer_posts';
 
 export default combineReducers({
-  key: function() {return []}
+  posts: PostsReducer
 });
