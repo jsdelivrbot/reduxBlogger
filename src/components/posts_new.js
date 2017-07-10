@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 class PostsNew extends Component {
+  onSubmit(values) {
+    console.log(values);
+  }
+
   renderField(field) {
     return(
       <div className='form-group'>
@@ -11,13 +15,16 @@ class PostsNew extends Component {
           type='text'
           {...field.input}
         />
+        {field.meta.error}
       </div>
     );
   }
 
   render() {
+    const { handleSubmit } = this.props;
+
     return (
-      <form>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field
           name='title'
           label='Title'
@@ -30,6 +37,7 @@ class PostsNew extends Component {
           name='content'
           label='Post Content'
           component={this.renderField} />
+        <button type='submit' className='btn btn-primary'>Submit</button>
       </form>
     );
   }
