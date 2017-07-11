@@ -8,9 +8,9 @@ class PostsIndex extends Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
-
+  
   renderPosts() {
-    _.map(this.props.posts, post => (
+    return _.map(this.props.posts, post => (
       <li className='list-group-item' key={post.id}>
         {post.title}
       </li>

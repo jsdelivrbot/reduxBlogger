@@ -16,7 +16,7 @@ export const fetchPosts = () => {
 };
 
 export const createPost = values => {
-  const request = axios.post(`${ROOT_URL}/post${API_KEY}`, values);
+  const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values);
 
   return ({
     type: CREATE_POST,
